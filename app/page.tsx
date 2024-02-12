@@ -6,7 +6,6 @@ import Logout from "./auth/_components/logout";
 export default async function Home() {
   const session = await auth();
 
- 
   return (
     <main className="4">
       <div>{JSON.stringify(session)}</div>
