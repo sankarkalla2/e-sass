@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { SessionProvider, useSession } from "next-auth/react";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import { auth } from "@/auth";
-
 const inter = Inter({ subsets: ["latin"] });
+
+import { SessionProvider, useSession } from "next-auth/react";
+
+import { auth } from "@/auth";
+import ModalProvider from "@/providers/modal-provider";
+import { Toaster } from "@/components/ui/sonner";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +24,11 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <SessionProvider session={session}>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <Toaster position="top-center" richColors />
+          <ModalProvider />
+          {children}
+        </body>
       </SessionProvider>
     </html>
   );

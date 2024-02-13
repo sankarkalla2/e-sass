@@ -12,7 +12,6 @@ import React from "react";
 import Link from "next/link";
 import Social from "./social";
 
-
 interface WrapperProps {
   children: React.ReactNode;
   backButtonLabel: string;

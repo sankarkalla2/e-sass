@@ -54,3 +54,11 @@ model VerificationToken {
 
   @@unique([email, token])
 }
+
+model Store {
+  id         String   @id @unique @default(cuid())
+  userId     String
+  name       String
+  creaatedAt DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}

@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/form";
 
 import Wrapper from "./wrappter";
-import { loginSchema } from "@/app/schemas/login-schema";
+import { loginSchema } from "@/schemas/login-schema";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { z } from "zod";

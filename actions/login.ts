@@ -1,6 +1,6 @@
 "use server";
 
-import { loginSchema } from "@/app/schemas/login-schema";
+import { loginSchema } from "@/schemas/login-schema";
 import { getUserByEmail, getUserById } from "@/data/user-service";
 import { z } from "zod";
 
