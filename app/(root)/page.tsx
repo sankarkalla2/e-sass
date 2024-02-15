@@ -16,6 +16,6 @@ export default function Home() {
     if (!isOpen) {
       onOpen();
     }
-  }, []);
+  }, [isOpen,  onOpen]);
   return <main className="4">Hello world</main>;
 }

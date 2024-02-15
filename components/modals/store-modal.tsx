@@ -43,6 +43,7 @@ const StoreModal = () => {
             return;
           }
           toast.success("Store successfully created");
+          window.location.assign(`/${data.success?.id}`);
         })
         .catch((err) => {
           toast.error("Something went wrong");
