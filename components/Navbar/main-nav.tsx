@@ -9,13 +9,18 @@ const MainNav = () => {
   const params = useParams();
   const routes = [
     {
+      href: `/${params.storeId}/overview`,
+      label: "Overview",
+      active: pathname === `/${params.storeId}/overview`,
+    },
+    {
       href: `/${params.storeId}/settings`,
       label: "Settings",
-      active: pathname === `${params.storeId}/settings`,
+      active: pathname === `/${params.storeId}/settings`,
     },
   ];
   return (
-    <nav className={cn("flex items-center gax-x-4 lg:space-x-6 lg:gap-x-6")}>
+    <nav className={cn("flex items-center space-x-4 lg:space-x-6 lg:gap-x-6")}>
       {routes.map((route) => (
         <Link
           href={route.href}

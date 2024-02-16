@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useEffect, useTransition } from "react";
-import { createStore } from "@/actions/create-store";
+import { createStore } from "@/actions/store";
 import { toast } from "sonner";
 
 const StoreModal = () => {

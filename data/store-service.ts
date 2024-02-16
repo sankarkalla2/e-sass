@@ -26,3 +26,17 @@ export const getAllStoresByUserId = async (userId: string) => {
     return null;
   }
 };
+
+export const getStoreById = async (id: string) => {
+  try {
+    const store = await db.store.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return store;
+  } catch {
+    return null;
+  }
+};
