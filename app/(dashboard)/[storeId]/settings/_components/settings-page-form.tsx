@@ -24,10 +24,11 @@ import { useState, useTransition } from "react";
 import { deleteStore, updateStore } from "@/actions/store";
 
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import ConfrimModal from "@/components/modals/confirm-modal";
 import { Alert } from "@/components/ui/alert";
 import ApiAlert from "@/components/ui/api-alert";
+import { useOrigin } from "@/hooks/use-origin";
 
 interface SettingsPageFormProps {
   store: Store;
@@ -36,6 +37,8 @@ const SettingsPageForm = ({ store }: SettingsPageFormProps) => {
   const [isLoading, startTranstion] = useTransition();
   const router = useRouter();
   const [open, setOpen] = useState<boolean>(false);
+  const params = useParams();
+  const origin = useOrigin();
 
   const form = useForm<z.infer<typeof storeTitleSchema>>({
     resolver: zodResolver(storeTitleSchema),
@@ -126,7 +129,7 @@ const SettingsPageForm = ({ store }: SettingsPageFormProps) => {
       <ApiAlert
         title={"something"}
         variant="public"
-        description="description"
+        description={`${origin}/api/${params.storeId}`}
       />
     </div>
   );
