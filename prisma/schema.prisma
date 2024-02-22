@@ -62,14 +62,49 @@ model Store {
   creaatedAt DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
   billboards BillBoard[]
+  Category   Category[]
+  sizes      Sizes[]
+  colors     Color[]
 }
 
 model BillBoard {
+  id        String     @id @unique @default(cuid())
+  storeId   String
+  store     Store      @relation(fields: [storeId], references: [id])
+  label     String
+  imgUrl    String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  categroy  Category[]
+}
+
+model Category {
+  id          String    @id @unique @default(cuid())
+  storeId     String
+  store       Store     @relation(fields: [storeId], references: [id])
+  billboardId String
+  billboard   BillBoard @relation(fields: [billboardId], references: [id])
+  name        String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Sizes {
   id        String   @id @unique @default(cuid())
   storeId   String
   store     Store    @relation(fields: [storeId], references: [id])
-  label     String
-  imgUrl    String
+  name      String
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Color {
+  id        String   @id @unique @default(cuid())
+  storeId   String
+  store     Store    @relation(fields: [storeId], references: [id])
+  name      String
+  value     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

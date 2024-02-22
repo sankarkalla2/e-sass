@@ -14,3 +14,17 @@ export const getBillboardById = async (id: string) => {
     return null;
   }
 };
+
+export const getAllBillboardsByStoreId = async (storeId: string) => {
+  try {
+    const billboards = await db.billBoard.findMany({
+      where: {
+        storeId,
+      },
+    });
+
+    return billboards;
+  } catch {
+    return null;
+  }
+};
