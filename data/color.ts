@@ -11,3 +11,15 @@ export const getColorById = async (id: string) => {
     return null;
   }
 };
+
+export const getAllColors = async (storeId: string) => {
+  try {
+    return await db.color.findMany({
+      where: {
+        storeId,
+      },
+    });
+  } catch {
+    return null;
+  }
+};

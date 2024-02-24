@@ -11,3 +11,15 @@ export const getSizeById = async (id: string) => {
     return null;
   }
 };
+
+export const getAllSizes = async (storeId: string) => {
+  try {
+    return await db.sizes.findMany({
+      where: {
+        storeId,
+      },
+    });
+  } catch {
+    return null;
+  }
+};

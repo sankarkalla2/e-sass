@@ -65,6 +65,8 @@ model Store {
   Category   Category[]
   sizes      Sizes[]
   colors     Color[]
+  Product    Product[]
+  Order      Order[]
 }
 
 model BillBoard {
@@ -87,24 +89,80 @@ model Category {
   name        String
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+  Product     Product[]
 }
 
 model Sizes {
-  id        String   @id @unique @default(cuid())
+  id        String    @id @unique @default(cuid())
   storeId   String
-  store     Store    @relation(fields: [storeId], references: [id])
+  store     Store     @relation(fields: [storeId], references: [id])
   name      String
   value     String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Product   Product[]
+}
+
+model Color {
+  id        String    @id @unique @default(cuid())
+  storeId   String
+  store     Store     @relation(fields: [storeId], references: [id])
+  name      String
+  value     String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Product   Product[]
+}
+
+model Product {
+  id         String @id @unique @default(cuid())
+  storeId    String
+  categoryId String
+  colorId    String
+  sizeId     String
+
+  store    Store    @relation(fields: [storeId], references: [id])
+  category Category @relation(fields: [categoryId], references: [id])
+  color    Color    @relation(fields: [colorId], references: [id])
+  size     Sizes    @relation(fields: [sizeId], references: [id])
+  Image    Image[]
+
+  price      Decimal
+  name       String
+  isFeatured Boolean
+  isArchived Boolean
+  createdAt  DateTime    @default(now())
+  updatedAT  DateTime    @updatedAt
+  OrderItem  OrderItem[]
+}
+
+model Image {
+  id        String   @id @unique @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  ulr       String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Color {
-  id        String   @id @unique @default(cuid())
-  storeId   String
-  store     Store    @relation(fields: [storeId], references: [id])
-  name      String
-  value     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model Order {
+  id         String      @id @unique @default(cuid())
+  orderId    String
+  storeId    String
+  store      Store       @relation(fields: [storeId], references: [id])
+  phone      String      @default("")
+  address    String      @default("")
+  OrderItem  OrderItem[]
+  totalPrice Decimal     @default(0)
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  isPaid     Boolean     @default(false)
+}
+
+model OrderItem {
+  id        String  @id @unique @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id])
 }

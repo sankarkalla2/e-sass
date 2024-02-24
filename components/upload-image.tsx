@@ -7,15 +7,17 @@ import { toast } from "sonner";
 import { Button } from "./ui/button";
 
 interface UploadImageProps {
-  value: [string] | [];
+  value: string[] | [];
   onChange: (url: string) => void;
 }
 export const UploadImage = ({ value, onChange }: UploadImageProps) => {
-  const [imgUrl, setImgUrl] = useState<string>("");
+  const [imgUrl, setImgUrl] = useState<string[] | []>([]);
   const [editing, setIsEditing] = useState<boolean>(false);
 
+  console.log("function called");
   useEffect(() => {
-    if (value.length === 1) setImgUrl(value[0]);
+    if (value.length >= 1) setImgUrl(value);
+    console.log(imgUrl);
   }, [value]);
   return (
     <div className="w-full">
@@ -30,37 +32,40 @@ export const UploadImage = ({ value, onChange }: UploadImageProps) => {
           {editing ? "cancel" : "Edit"}
         </Button>
       </div>
-      {imgUrl && !editing && (
+      {imgUrl && imgUrl.length >= 1 && !editing && (
         <div className="relative aspect-video">
           <Image
-            src={imgUrl}
+            src={imgUrl[0]}
             alt="img"
             fill
             className="object-cover rounded-lg bg-muted-foreground border-dotted border-2 border-red-400"
           />
         </div>
       )}
-      {imgUrl && editing && (
+      {imgUrl.length >= 1 && editing && (
         <UploadDropzone
           endpoint="imageUploader"
           onClientUploadComplete={(res) => {
-            setImgUrl(res[0].url);
+            console.log(res[res.length - 1]);
+            setImgUrl(res.map((img) => img.url));
             toast.success("img uploaded successfully");
-            onChange(res[0].url);
+            onChange(res[res.length - 1].url);
             setIsEditing(false);
           }}
           onUploadError={(error: Error) => {
             toast.error("Error occured while uploading image");
+            console.log(error);
           }}
         />
       )}
-      {!imgUrl && (
+      {imgUrl.length === 0 && (
         <UploadDropzone
           endpoint="imageUploader"
           onClientUploadComplete={(res) => {
-            setImgUrl(res[0].url);
+            console.log(res);
+            setImgUrl(res.map((img) => img.url));
             toast.success("img uploaded successfully");
-            onChange(res[0].url);
+            onChange(res[res.length - 1].url);
           }}
           onUploadError={(error: Error) => {
             toast.error("Error occured while uploading image");
