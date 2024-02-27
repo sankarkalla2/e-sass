@@ -1,10 +1,10 @@
 "use server";
 
-import { registerSchema } from "@/app/schemas/register-schema";
 import { getUserByEmail } from "@/data/user-service";
 import db from "@/lib/db";
 import { generateVerificationToken } from "@/lib/generate-verification-token";
 import { sendVerifyEmail } from "@/lib/resend";
+import { registerSchema } from "@/schemas/register-schema";
 import bcrypt from "bcryptjs";
 import { z } from "zod";
 
