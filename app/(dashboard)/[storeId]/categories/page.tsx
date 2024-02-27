@@ -36,9 +36,15 @@ const Categories = async ({ params }: { params: { storeId: string } }) => {
       createdAt: "asc",
     },
   });
+
+  const categorie = await fetch(
+    "http://localhost:3000/api/clsn4f9j200007eokl11fy4gv/categories"
+  );
+
+  console.log(categorie);
+
   if (!categories) return redirect("/");
   if (!billboards) return redirect("/");
-
 
   const formattedItems = categories.map((item) => ({
     id: item.id,

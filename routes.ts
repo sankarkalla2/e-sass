@@ -20,7 +20,7 @@ export const authRoutes = [
  * @type {string}
  * The prefix api routes starting with api/auth
  */
-export const apiAuthPrefix = "/api/auth";
+export const apiAuthPrefix = "/api";
 
 /**
  * The default redirect path after logged or logged out
