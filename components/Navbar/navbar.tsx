@@ -1,11 +1,8 @@
 import StoreSwitcher from "@/app/(dashboard)/[storeId]/_components/store-switcher";
-import { Button } from "../ui/button";
 import MainNav from "./main-nav";
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { getAllStoresByUserId } from "@/data/store-service";
-import { signout } from "@/actions/logout";
-import { toast } from "sonner";
 import UserButton from "./user-botton";
 
 const Navbar = async () => {
