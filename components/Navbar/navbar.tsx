@@ -4,6 +4,9 @@ import MainNav from "./main-nav";
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { getAllStoresByUserId } from "@/data/store-service";
+import { signout } from "@/actions/logout";
+import { toast } from "sonner";
+import UserButton from "./user-botton";
 
 const Navbar = async () => {
   const user = await auth();
@@ -11,14 +14,14 @@ const Navbar = async () => {
 
   const stores = await getAllStoresByUserId(user.id);
   if (!stores) return redirect("/");
+
   return (
     <div className="h-16 border-b shadow-sm flex items-center px-4 justify-between">
       <div className="flex items-center gap-x-3">
         <StoreSwitcher items={stores} />
         <MainNav />
       </div>
-
-      <Button variant="outline">User</Button>
+      <UserButton />
     </div>
   );
 };

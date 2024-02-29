@@ -4,7 +4,6 @@ import { DataTable } from "../../../../components/ui/data-table";
 import { redirect } from "next/navigation";
 import db from "@/lib/db";
 import { Separator } from "@/components/ui/separator";
-import { getAllCategoriesByStoreId } from "@/data/categoreis-service";
 import CategoriClient from "./_components/category-client";
 
 const Categories = async ({ params }: { params: { storeId: string } }) => {
@@ -37,11 +36,7 @@ const Categories = async ({ params }: { params: { storeId: string } }) => {
     },
   });
 
-  const categorie = await fetch(
-    "http://localhost:3000/api/clsn4f9j200007eokl11fy4gv/categories"
-  );
 
-  console.log(categorie);
 
   if (!categories) return redirect("/");
   if (!billboards) return redirect("/");
