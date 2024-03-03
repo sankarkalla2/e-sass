@@ -155,7 +155,7 @@ const ProductForm = ({
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <div className="sm:w-full  md:grid grid-cols-2 xl:grid-cols-3 space-y-4 md:space-x-4">
+          <div className="sm:w-full  md:grid grid-cols-2 xl:grid-cols-3 space-y-4 md:gap-x-4">
             <FormField
               control={form.control}
               name="name"

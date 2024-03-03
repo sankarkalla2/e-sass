@@ -28,7 +28,12 @@ export const createNewCategory = async (
         billboardId: billboard,
         storeId,
       },
+      select: {
+        name: true
+      }
     });
+
+    console.log(category);
 
     return { success: "new category created successfully" };
   } catch {

@@ -1,6 +1,3 @@
-import { auth } from "@/lib/auth";
-import BillboardClient from "../_components/category-client";
-import BillBoardForm from "../_components/category-form";
 import { redirect, useParams } from "next/navigation";
 import {
   getAllBillboardsByStoreId,
@@ -18,7 +15,6 @@ const BillboardPage = async ({
 }) => {
   const billboards = await getAllBillboardsByStoreId(params.storeId);
   if (!billboards) return redirect(`/${params.storeId}/billboards/new`);
-
 
   const category = await db.category.findUnique({
     where: {

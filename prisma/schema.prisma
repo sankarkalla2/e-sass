@@ -36,14 +36,15 @@ model Account {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  role          UserRole  @default(ADMIN)
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  password      String?
-  image         String?
-  accounts      Account[]
+  id                 String    @id @default(cuid())
+  role               UserRole  @default(ADMIN)
+  name               String?
+  email              String?   @unique
+  emailVerified      DateTime?
+  password           String?
+  image              String?
+  isTwoFactorEnabled Boolean   @default(false)
+  accounts           Account[]
 }
 
 model VerificationToken {
@@ -67,6 +68,7 @@ model Store {
   colors     Color[]
   Product    Product[]
   Order      Order[]
+  Banner     Banner?
 }
 
 model BillBoard {
@@ -90,6 +92,7 @@ model Category {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   Product     Product[]
+  Banner      Banner?
 }
 
 model Sizes {
@@ -165,4 +168,17 @@ model OrderItem {
   product   Product @relation(fields: [productId], references: [id])
   orderId   String
   order     Order   @relation(fields: [orderId], references: [id])
+}
+
+model Banner {
+  id         String    @id @unique @default(cuid())
+  name       String
+  offer      Int?
+  storeId    String
+  store      Store     @relation(fields: [storeId], references: [id])
+  categoryId String?
+  category   Category? @relation(fields: [categoryId], references: [id])
+
+  @@unique([storeId])
+  @@unique([categoryId])
 }

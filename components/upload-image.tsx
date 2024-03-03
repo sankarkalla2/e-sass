@@ -14,10 +14,9 @@ export const UploadImage = ({ value, onChange }: UploadImageProps) => {
   const [imgUrl, setImgUrl] = useState<string[] | []>([]);
   const [editing, setIsEditing] = useState<boolean>(false);
 
-  console.log("function called");
   useEffect(() => {
     if (value.length >= 1) setImgUrl(value);
-    console.log(imgUrl);
+    console.log(imgUrl.length);
   }, [value]);
   return (
     <div className="w-full">
@@ -46,10 +45,9 @@ export const UploadImage = ({ value, onChange }: UploadImageProps) => {
         <UploadDropzone
           endpoint="imageUploader"
           onClientUploadComplete={(res) => {
-            console.log(res[res.length - 1]);
             setImgUrl(res.map((img) => img.url));
             toast.success("img uploaded successfully");
-            onChange(res[res.length - 1].url);
+            onChange(res[0].url);
             setIsEditing(false);
           }}
           onUploadError={(error: Error) => {

@@ -54,9 +54,9 @@ const StoreSwitcher = ({ items }: StoreSwitcherProps) => {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={cn("w-[200px] justify-between")}
+          className={cn("justify-between")}
         >
-          <StoreIcon className="w-5 h-5 shrink-0" />
+          <StoreIcon className="w-5 h-5 shrink-0 mr-2" />
           {currentStore?.label}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -69,16 +69,17 @@ const StoreSwitcher = ({ items }: StoreSwitcherProps) => {
             {formattedItems?.map((item) => (
               <CommandItem
                 key={item.value}
-               
                 onSelect={() => {
-                  setOpen(false)
+                  setOpen(false);
                   onStoreSelect(item);
                 }}
               >
                 <Check
                   className={cn(
                     "mr-2 h-4 w-4",
-                    currentStore?.value === item.value ? "opacity-100" : "opacity-0"
+                    currentStore?.value === item.value
+                      ? "opacity-100"
+                      : "opacity-0"
                   )}
                 />
                 {item.label}

@@ -71,7 +71,6 @@ const CategoryForm = ({ category, billboards }: CategoryFormProps) => {
   const toastMessage = category ? "category changed" : "new category created";
 
   const onSubmit = async (values: z.infer<typeof CategorySchema>) => {
-    console.log(values);
     startTranstion(() => {
       createNewCategory(values, params.storeId.toString()).then((data) => {
         if (data.error) {
