@@ -1,11 +1,7 @@
 import { SkeletonItems } from "@/components/skeleton";
 
 const LoadingPage = () => {
-  return (
-    <div>
-      <SkeletonItems />
-    </div>
-  );
+  return <SkeletonItems />;
 };
 
 export default LoadingPage;

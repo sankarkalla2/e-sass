@@ -55,14 +55,16 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter Labels..."
-          value={(table.getColumn("label")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("label")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
+        {
+          table.getColumn('label') && <Input
+            placeholder="Filter Labels..."
+            value={(table.getColumn("label")?.getFilterValue() as string) ?? ""}
+            onChange={(event) =>
+              table.getColumn("label")?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+          />
+        }
       </div>
       <div className="rounded-md border">
         <Table>

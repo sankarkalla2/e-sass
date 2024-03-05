@@ -8,7 +8,9 @@ const DashbaordLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Navbar />
-      <main className="p-4 md:px-8 lg:px-20 xl:px-32">{children}</main>
+      <main className="p-2 md:px-8 lg:px-20">
+       {children}
+      </main>
     </>
   );
 };

@@ -38,11 +38,29 @@ const Sizes = async ({ params }: { params: { storeId: string } }) => {
       <DataTable columns={columns} data={formattedItems} />
 
       <Separator />
-      {/* <ApiAlert
-        title={"something"}
-        variant="public"
-        description={`${origin}/api/${params.storeId}`}
-      /> */}
+
+      <div className="space-y-4 pt-5">
+        <ApiAlert
+          title={"GET"}
+          variant="public"
+          description={`${process.env.NEXT_APP_URL}/api/${params.storeId}/colors`}
+        />
+        <ApiAlert
+          title={"POST"}
+          variant="admin"
+          description={`${process.env.NEXT_APP_URL}/api/${params.storeId}/colors`}
+        />
+        <ApiAlert
+          title={"UPDATE"}
+          variant="admin"
+          description={`${process.env.NEXT_APP_URL}/api/${params.storeId}/colors/{colorId}`}
+        />
+        <ApiAlert
+          title={"DELETE"}
+          variant="admin"
+          description={`${process.env.NEXT_APP_URL}/api/${params.storeId}/colors/{colorId}`}
+        />
+      </div>
     </div>
   );
 };

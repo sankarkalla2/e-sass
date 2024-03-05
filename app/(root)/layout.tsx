@@ -8,19 +8,19 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 const RootLayout = async ({ children }: RootLayoutProps) => {
-  const user = await auth();
-  if (!user || !user.id) return redirect("/auth/login");
+  // const user = await auth();
+  // if (!user || !user.id) return redirect("/auth/login");
 
-  console.log(user.id);
-  const store = await db.store.findFirst({
-    where: {
-      userId: user.id,
-    },
-  });
-  console.log(store);
-  if (store) {
-    return redirect(`/${store.id}`);
-  }
+  // console.log(user.id);
+  // const store = await db.store.findFirst({
+  //   where: {
+  //     userId: user.id,
+  //   },
+  // });
+  // console.log(store);
+  // if (store) {
+  //   return redirect(`/${store.id}`);
+  // }
 
   return <>{children}</>;
 };

@@ -127,8 +127,18 @@ const SettingsPageForm = ({ store }: SettingsPageFormProps) => {
       </Form>
       <Separator />
       <ApiAlert
-        title={"something"}
+        title={"GET"}
         variant="public"
+        description={`${origin}/api/${params.storeId}`}
+      />
+      <ApiAlert
+        title={"UPDATE"}
+        variant="admin"
+        description={`${origin}/api/${params.storeId}`}
+      />
+      <ApiAlert
+        title={"DELETE"}
+        variant="admin"
         description={`${origin}/api/${params.storeId}`}
       />
     </div>

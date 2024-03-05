@@ -27,22 +27,22 @@ const Orders = async ({ params }: { params: { storeId: string } }) => {
             },
           },
         },
-        
       },
     },
+    orderBy: {
+      createdAt: 'desc'
+    }
   });
 
   if (!orders) return redirect("/");
 
   const formattedItems = orders.map((item) => ({
     id: item.id,
-    label: item.OrderItem.reduce(
-      (acc, curVal) => acc + curVal.product.name + " ",
-      ""
-    ),
     createdAt: item.createdAt,
     phone: item.phone,
     address: item.address,
+    isPaid: item.isPaid,
+    orderId: item.orderId,
   }));
   return (
     <div>

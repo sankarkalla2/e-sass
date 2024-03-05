@@ -29,11 +29,29 @@ const Billboards = async ({ params }: { params: { storeId: string } }) => {
       <DataTable columns={columns} data={billboards} />
 
       <Separator />
-      {/* <ApiAlert
-        title={"something"}
-        variant="public"
-        description={`${origin}/api/${params.storeId}`}
-      /> */}
+
+      <div className="space-y-4 pt-5">
+        <ApiAlert
+          title={"GET"}
+          variant="public"
+          description={`${process.env.NEXT_APP_URL}/api/${params.storeId}/billboards`}
+        />
+        <ApiAlert
+          title={"POST"}
+          variant="admin"
+          description={`${process.env.NEXT_APP_URL}/api/${params.storeId}/billboards`}
+        />
+        <ApiAlert
+          title={"UPDATE"}
+          variant="admin"
+          description={`${process.env.NEXT_APP_URL}/api/${params.storeId}/billboard/{billboardId}`}
+        />
+        <ApiAlert
+          title={"DELETE"}
+          variant="admin"
+          description={`${process.env.NEXT_APP_URL}/api/${params.storeId}/billboard/{billboardId}`}
+        />
+      </div>
     </div>
   );
 };

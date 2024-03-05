@@ -4,6 +4,7 @@ import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { getAllStoresByUserId } from "@/data/store-service";
 import UserButton from "./user-botton";
+import { ModeToggle } from "./mode-toggle";
 
 const Navbar = async () => {
   const user = await auth();
@@ -18,7 +19,10 @@ const Navbar = async () => {
         <StoreSwitcher items={stores} />
         <MainNav />
       </div>
-      <UserButton />
+      <div className="flex items-center gap-x-1">
+        <ModeToggle />
+        <UserButton />
+      </div>
     </div>
   );
 };
