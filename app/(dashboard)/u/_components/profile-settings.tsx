@@ -37,7 +37,6 @@ interface ProfileSettingsProps {
 const ProfileSettings = ({ user }: ProfileSettingsProps) => {
   const [isUpdating, startTransition] = useTransition();
 
-  if (!user || !user.id) return notFound();
   const form = useForm<z.infer<typeof updateUserSchema>>({
     resolver: zodResolver(updateUserSchema),
     defaultValues: {
