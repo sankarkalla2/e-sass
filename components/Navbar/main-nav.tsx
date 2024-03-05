@@ -110,7 +110,10 @@ const MainNav = () => {
           {routes.map(
             (route) =>
               route.style && (
-                <DropdownMenuItem className={cn("cursor-pointer")}>
+                <DropdownMenuItem
+                  className={cn("cursor-pointer")}
+                  key={route.href}
+                >
                   <Link href={route.href}>
                     <Link
                       href={route.href}

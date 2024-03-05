@@ -13,8 +13,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { currentUser } from "@/hooks/current-user";
 import { updateUserSchema } from "@/schemas/user-update-schema";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useTransition } from "react";
 import {
@@ -41,8 +41,8 @@ const ProfileSettings = ({ user }: ProfileSettingsProps) => {
   const form = useForm<z.infer<typeof updateUserSchema>>({
     resolver: zodResolver(updateUserSchema),
     defaultValues: {
-      name: user?.name || "",
-      isTwoFactorEnabled: user?.isTwoFactorEnabled || false,
+      name: user.name || "",
+      isTwoFactorEnabled: user.isTwoFactorEnabled || false,
     },
   });
 
@@ -72,7 +72,7 @@ const ProfileSettings = ({ user }: ProfileSettingsProps) => {
           <CardHeader>
             <CardTitle>Account</CardTitle>
             <CardDescription>
-              Make changes to your account here. Click save when you're done.
+              Make changes to your account here. Click save when you done.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
@@ -132,21 +132,34 @@ const ProfileSettings = ({ user }: ProfileSettingsProps) => {
           <CardHeader>
             <CardTitle>Password</CardTitle>
             <CardDescription>
-              Change your password here. After saving, you'll be logged out.
+              Change your password here. After saving, you&apos;ll be logged
+              out.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="current">Current password</Label>
-              <Input id="current" type="password" placeholder="current password..."/>
+              <Input
+                id="current"
+                type="password"
+                placeholder="current password..."
+              />
             </div>
             <div className="space-y-1">
               <Label htmlFor="new">New password</Label>
-              <Input id="new" type="password" placeholder="create new password "/>
+              <Input
+                id="new"
+                type="password"
+                placeholder="create new password "
+              />
             </div>
             <div className="space-y-1">
               <Label htmlFor="new">Retype New password</Label>
-              <Input id="new" type="password" placeholder="Retype new password "/>
+              <Input
+                id="new"
+                type="password"
+                placeholder="Retype new password "
+              />
             </div>
           </CardContent>
           <CardFooter>
