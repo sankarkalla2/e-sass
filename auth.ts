@@ -11,7 +11,6 @@ declare module "next-auth" {
   interface User {
     role: "USER" | "ADMIN";
     isTwoFactorEnabled: boolean;
-    isOAuthProvider: boolean;
   }
 }
 
@@ -42,10 +41,6 @@ export const {
       if (token.isTwoFactorEnabled && session.user) {
         session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean;
       }
-
-      if (token.isOAuthProvider && session.user) {
-        session.user.isOAuthProvider = token.isOAuthProvider as boolean;
-      }
       return session;
     },
 
@@ -56,8 +51,7 @@ export const {
       if (!existingUser) return token;
 
       token.role = existingUser.role;
-      token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
-      token.isOAuthProvider = existingUser.password ? false : true;
+      token.isTwoFactorEnabled = !!existingUser.isTwoFactorEnabled;
       return token;
     },
   },

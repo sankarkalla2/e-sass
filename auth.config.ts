@@ -2,6 +2,7 @@ import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 
 import Credentials from "next-auth/providers/credentials";
+import { User } from "@prisma/client";
 
 import type { NextAuthConfig } from "next-auth";
 import { loginSchema } from "./schemas/login-schema";
