@@ -12,7 +12,7 @@ const Social = () => {
       <Button
         variant="outline"
         className="w-full"
-        onClick={() => signIn("google", { callbackUrl: "/" })}
+        onClick={() => signIn("google")}
       >
         <FcGoogle className="w-5 h-5" />
       </Button>
