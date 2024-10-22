@@ -14,6 +14,24 @@ E-SASS is designed to simplify e-commerce backend operations for developers and 
 
 Our goal is to provide a flexible, scalable, and easy-to-use solution for e-commerce backends, allowing developers to focus on creating great frontend experiences.
 
+## Dashboard Overview
+
+![E-SASS Dashboard](path/to/dashboard-screenshot.png)
+
+Our intuitive dashboard provides a comprehensive overview of your e-commerce operations, allowing you to manage multiple stores, track sales, and monitor inventory all in one place.
+
+## Adding Products
+
+![Adding Products](path/to/add-product-screenshot.png)
+
+E-SASS makes it easy to add and manage products. Our user-friendly interface allows you to input product details, set pricing, manage inventory, and upload product images effortlessly.
+
+## Authentication
+
+![Authentication Page](path/to/auth-screenshot.png)
+
+Our secure authentication system ensures that only authorized users can access the E-SASS dashboard and API. We provide a clean, user-friendly login interface with options for email/password login and social authentication.
+
 ## Technologies Used
 
 - Next.js with TypeScript
@@ -79,8 +97,7 @@ E-SASS provides the following key API endpoints:
 - Scalable Architecture: Built on Next.js with TypeScript for optimal performance, scalability, and type safety.
 - Secure User Management: Utilizes NextAuth for robust authentication and authorization.
 - Efficient File Storage: Leverages Uploadthing for seamless file uploads and storage management.
-- Secure Payment Processing: Integrated with Stripe for reliable and secure payment handling.
-- Responsive UI: Utilizes Tailwind CSS for a clean, responsive design that's easy to customize.
+- Secure Payment Processing
 
 ## Documentation
 
