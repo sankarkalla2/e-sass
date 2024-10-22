@@ -16,19 +16,26 @@ Our goal is to provide a flexible, scalable, and easy-to-use solution for e-comm
 
 ## Dashboard Overview
 
-![E-SASS Dashboard](path/to/dashboard-screenshot.png)
+![E-SASS Dashboard](https://utfs.io/f/EW20NNhMOnaKgF92YDyyCDQuK0xHOIBJ2vnWNAc4Zd95SsRG)
 
 Our intuitive dashboard provides a comprehensive overview of your e-commerce operations, allowing you to manage multiple stores, track sales, and monitor inventory all in one place.
 
+
+## Adding Multiple Store
+
+![Manage Stores](https://utfs.io/f/EW20NNhMOnaKLtOiUXQpPxan38uViBe05OkTF24qcDEI9jdA)
+E-SASS makes easy to manage and add multiple stores.
+
+
 ## Adding Products
 
-![Adding Products](path/to/add-product-screenshot.png)
+![Adding Products](https://utfs.io/f/EW20NNhMOnaKsIXgA8N0whIoxsS12zbpGFjdgu59qi6cBAvQ)
 
 E-SASS makes it easy to add and manage products. Our user-friendly interface allows you to input product details, set pricing, manage inventory, and upload product images effortlessly.
 
 ## Authentication
 
-![Authentication Page](path/to/auth-screenshot.png)
+![Authentication Page](https://utfs.io/f/EW20NNhMOnaKSFZ5S3hnwaXCOyqK2NvVA471T3znxWHfbcdQ)
 
 Our secure authentication system ensures that only authorized users can access the E-SASS dashboard and API. We provide a clean, user-friendly login interface with options for email/password login and social authentication.
 
