@@ -56,15 +56,13 @@ To get E-SASS up and running locally, follow these steps:
 
 1. Clone the repository
    ```
-   git clone https://github.com/your-username/E-SASS.git
+   git clone https://github.com/sankarkalla2/e-sass.git
    ```
 
 2. Install dependencies
    ```bash
    npm install
-   # or
-   yarn install
-   ```
+
 
 3. Set up environment variables
    ```
@@ -126,9 +124,9 @@ We welcome contributions to E-SASS! If you have suggestions or want to contribut
 
 ## Contact
 
-[Your Name/Team Name] - [your.email@example.com]
+[Gowrisankar] - [gowrisankarkalla4@gmail.com]
 
-Project Link: [https://github.com/your-username/E-SASS](https://github.com/your-username/E-SASS)
+Project Link: [https://github.com/your-username/E-SASS](https://github.com/sankarkalla2/e-sass.git)
 
 ## Acknowledgements
 
