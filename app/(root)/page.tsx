@@ -109,7 +109,7 @@ export default async function Home() {
               <BarChart className="h-12 w-12 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">Analytics</h3>
               <p className="text-neutral-500">
-                Track your store's performance with detailed analytics and
+                Track your store&apos;s performance with detailed analytics and
                 insights.
               </p>
             </div>
@@ -163,7 +163,7 @@ export default async function Home() {
               </h3>
               <p className="text-neutral-500">
                 Getting started is easy! Simply sign up for an account, choose
-                your store name, and you'll be guided through our intuitive
+                your store name, and you&apos;ll be guided through our intuitive
                 setup process. You can start adding products and customizing
                 your store in minutes.
               </p>
@@ -181,7 +181,7 @@ export default async function Home() {
             </div>
             <div className="border-b dark:border-white/10 pb-6">
               <h3 className="text-xl font-semibold mb-2">
-                Can I customize my store's design?
+                Can I customize my store&apos;s design?
               </h3>
               <p className="text-neutral-500">
                 Yes! StoreHub offers extensive customization options. You can
